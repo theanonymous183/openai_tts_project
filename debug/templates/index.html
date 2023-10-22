@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speech Recognition Demo</title>
+</head>
+<body>
+    <h1>Speech Recognition Demo</h1>
+    <button onclick="recognizeSpeech()">Click to Speak</button>
+    <div id="response"></div>
+    <script>
+        function recognizeSpeech() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/speech-recognition");
+            xhr.onload = function() {
+                document.getElementById("response").innerHTML = xhr.responseText;
+            }
+            xhr.send();
+        }
+        
+    </script>
+</body>
+</html>
